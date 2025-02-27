@@ -1,8 +1,8 @@
 import streamlit as st
-import openai  # Replace with Google AI API if needed
+import openai 
 import os
 
-# Set OpenAI API key directly (replace with your actual API key)
+
 OPENAI_API_KEY =""
 
 openai.api_key = OPENAI_API_KEY
@@ -14,7 +14,7 @@ def review_code(code):
     
     try:
         response = openai.ChatCompletion.create(
-            model="gpt-3.5-turbo",  # Adjust model as needed
+            model="gpt-3.5-turbo",  
             messages=[
                 {"role": "system", "content": "You are an AI code reviewer. Identify bugs and suggest fixes."},
                 {"role": "user", "content": f"Review the following Python code:\n{code}"}
@@ -24,7 +24,7 @@ def review_code(code):
     except openai.error.OpenAIError as e:
         return f"Error: {e}"
 
-# Streamlit UI
+
 st.title("AI Code Reviewer")
 st.write("Submit your Python code for review and get AI-generated feedback!")
 
